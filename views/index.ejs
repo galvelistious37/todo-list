@@ -12,8 +12,14 @@
         <input type="text" name="task" placeholder="New Task">
         <input type="submit" value="OK">
     </form>
-    <% if(locals.tasks) {%>
-    <%= tasks %>
-    <%}%>
+    <ul>
+        <% if(locals.tasks) {%>
+            <%for(let i = 0; i < tasks.length; i++){%>
+                <input type="checkbox" id="<%= i %>" name="task<%= i %>" value="blah" class="checks">
+                <label for="task<%= i %>"><span id="span<%= i %>"><%= tasks[i] %></span> </label><br>
+            <%}%>
+        <%}%>
+    </ul>
+    <script src="/js/front.js"></script>
 </body>
 </html>
