@@ -8,5 +8,12 @@
 </head>
 <body>
     <h1>Sup</h1>
+    <form action="/daily" method="POST">
+        <input type="text" name="task" placeholder="New Task">
+        <input type="submit" value="OK">
+    </form>
+    <% if(locals.tasks) {%>
+    <%= tasks %>
+    <%}%>
 </body>
 </html>
