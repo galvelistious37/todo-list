@@ -11,6 +11,14 @@ app.get("/", function(req, res){
     res.render("index.ejs")
 })
 
+let dailyTasks = []
+app.post("/daily", function(req, res){
+    dailyTasks.push(req.body["task"])
+    res.render("index.ejs", {
+        tasks: dailyTasks
+    })
+})
+
 app.listen(port, () =>{
     console.log(`Listening on port ${port}`)
 })
