@@ -13,7 +13,13 @@ app.get("/", function(req, res){
 
 let dailyTasks = []
 app.post("/daily", function(req, res){
-    dailyTasks.push(req.body["task"])
+    let reqName = req.body["task"]
+    let reqDone = req.body["done"]
+    console.log("prevItems: " + req.body["prevItems"])
+    // console.log("checking name: "+ reqName)
+    // console.log("checking value: "+ reqDone)
+    dailyTasks.push({"name":reqName, "done":reqDone})
+    console.log(dailyTasks)
     res.render("index.ejs", {
         tasks: dailyTasks
     })
