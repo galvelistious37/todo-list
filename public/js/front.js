@@ -5,8 +5,8 @@ function setListener(){
         box.addEventListener("click", function(e){
             let id = e.target.id
             console.log(id)
+            
             document.getElementById(`span${id}`).classList.add("strikethrough")
-            // document.getElementById(`${id}`).innerHTML = "Something"
         })
     })
 }

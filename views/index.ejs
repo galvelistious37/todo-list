@@ -8,34 +8,24 @@
 </head>
 <body>
     <h1>Sup</h1>
-    <%let previousTasks = []%>
+
     <form action="/daily" method="POST">
         <input type="text" name="task" placeholder="New Task">
-        <input type="hidden" name="done" value="no">
-        <input type="hidden" name="prevItems" value=<% previousTasks %>>
         <input type="submit" value="OK">
     </form>
-    <ul>
-        <% if(locals.tasks) {%>
-            <% console.log("Inside ejs: " +tasks) %>
-            <%for(let i = 0; i < tasks.length; i++){%>
-                <% previousTasks.push({"name": tasks[i].name, "done": tasks[i].done}) %>
-                <% console.log("previousTasks ejs name: " +tasks[i].name) %>
-                <% console.log("previousTasks ejs done: " +tasks[i].done) %>
-                <% console.log("previousTasks ejs done: " +tasks[i].done) %>
-                <input type="checkbox" id="<%= i %>" name="task<%= i %>" value="0" class="checks" 
-                onclick=<%tasks[this.id].done = "yes"%>>
-                <label for="task<%= i %>"><span id="span<%= i %>"><%= tasks[i].name %></span> </label><br>
+    
+    <form action="/update" method="POST">
+        <ul>
+            <% if(locals.tasks) {%>
+                <% console.log("ejs") %>
+                <% console.log(tasks) %>
+                <%tasks.forEach((task) => {%>
+                    <%- task.type %>
+                    <%- task.label %>
+                <%})%>
             <%}%>
-        <%}%>
-    </ul>
-    <script type="text/javascript">
-        function updateTask(task){
-            let index = `${task.id}`
-            // let indext = name.subtring(name.length -1)
-            alert(previousTasks[index])
-        }
-    </script>
+        </ul>
+    </form>
     <script src="/js/front.js"></script>
 </body>
 </html>
