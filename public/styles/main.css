@@ -1,3 +1,7 @@
 body{
     background-color: red;
 }
+
+.strikethrough{
+    text-decoration:line-through
+}

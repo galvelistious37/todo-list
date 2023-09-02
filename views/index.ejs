@@ -8,12 +8,24 @@
 </head>
 <body>
     <h1>Sup</h1>
+
     <form action="/daily" method="POST">
         <input type="text" name="task" placeholder="New Task">
         <input type="submit" value="OK">
     </form>
-    <% if(locals.tasks) {%>
-    <%= tasks %>
-    <%}%>
+    
+    <form action="/update" method="POST">
+        <ul>
+            <% if(locals.tasks) {%>
+                <% console.log("ejs") %>
+                <% console.log(tasks) %>
+                <%tasks.forEach((task) => {%>
+                    <%- task.type %>
+                    <%- task.label %>
+                <%})%>
+            <%}%>
+        </ul>
+    </form>
+    <script src="/js/front.js"></script>
 </body>
 </html>
