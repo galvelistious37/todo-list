@@ -18,12 +18,12 @@ let count = 0
 app.post("/daily", function(req, res){
     let task = req.body["task"]
     let id = count
-    let formStart = '<form action="/update" method="POST"><ul>'
+    let formStart = '<form action="/update" method="POST">'
     let type = "<input type='checkbox' id='" + id 
         + "' name='task' value='" + id + "' class='checks' onclick='this.form.submit()'></input>"
 
     let label = "<label for='task'><span id='span" + id + "' class=''>" + task + "</span></label><br>"
-    let formEnd = '</ul></form><br>'
+    let formEnd = '</form><br>'
 
     dailyTasks.push({"id": id, "formStart": formStart, "type": type, "label": label, "formEnd": formEnd})
     console.log(dailyTasks)
