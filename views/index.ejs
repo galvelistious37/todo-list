@@ -14,18 +14,15 @@
         <input type="submit" value="OK">
     </form>
     
-    <form action="/update" method="POST">
-        <ul>
-            <% if(locals.tasks) {%>
-                <% console.log("ejs") %>
-                <% console.log(tasks) %>
-                <%tasks.forEach((task) => {%>
-                    <%- task.type %>
-                    <%- task.label %>
-                <%})%>
-            <%}%>
-        </ul>
-    </form>
+    <% if(locals.tasks) {%>
+        <%tasks.forEach((task) => {%>
+            <%- task.formStart %>
+            <%- task.type %>
+            <%- task.label %>
+            <%- task.End %>
+        <%})%>
+    <%}%>
+    
     <script src="/js/front.js"></script>
 </body>
 </html>
