@@ -1,7 +1,19 @@
-body{
-    background-color: red;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header-img {
+    width: 150px;
+    height: 150px;
 }
 
 .strikethrough{
     text-decoration:line-through
+}
+
+@media(max-width: 768px){
+    .remove-small{
+        display: none;
+    }
 }

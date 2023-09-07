@@ -8,17 +8,26 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"))
 
 app.get("/", function(req, res){
-    res.render("index.ejs")
+    res.render("dailyTasks.ejs")
 })
 
 let dailyTasks = []
 let count = 0
 
 
-app.post("/daily", function(req, res){
+app.post("/goToDailyTasks", function(req, res){
+    console.log("size(): " + dailyTasks.length)
+    if(dailyTasks.length > 0){
+        res.render("dailyTasks.ejs", {tasks: dailyTasks})
+    } else {
+        res.render("dailyTasks.ejs")
+    }
+})
+
+app.post("/dailyTasks", function(req, res){
     let task = req.body["task"]
     let id = count
-    let formStart = '<form action="/update" method="POST">'
+    let formStart = '<form action="/updateDailyTask" method="POST">'
     let type = "<input type='checkbox' id='" + id 
         + "' name='task' value='" + id + "' class='checks' onclick='this.form.submit()'></input>"
 
@@ -26,11 +35,11 @@ app.post("/daily", function(req, res){
     let formEnd = '</form><br>'
 
     dailyTasks.push({"id": id, "formStart": formStart, "type": type, "label": label, "formEnd": formEnd})
-    res.render("index.ejs", {tasks: dailyTasks})
+    res.render("dailyTasks.ejs", {tasks: dailyTasks})
     count++
 })
 
-app.post("/update", function(req, res){
+app.post("/updateDailyTask", function(req, res){
     let id = req.body["task"]
     dailyTasks[id].type = "<input type='checkbox' id='" + id 
     + "' name='task" + id 
@@ -39,7 +48,7 @@ app.post("/update", function(req, res){
     let tempString = dailyTasks[id].label
     let newString = tempString.replace("class=''", "class='strikethrough'")
     dailyTasks[id].label = newString
-    res.render("index.ejs", {tasks: dailyTasks})
+    res.render("dailyTasks.ejs", {tasks: dailyTasks})
 })
 
 app.listen(port, () =>{
