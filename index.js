@@ -26,9 +26,7 @@ app.post("/daily", function(req, res){
     let formEnd = '</form><br>'
 
     dailyTasks.push({"id": id, "formStart": formStart, "type": type, "label": label, "formEnd": formEnd})
-    console.log(dailyTasks)
     res.render("index.ejs", {tasks: dailyTasks})
-    console.log("Get latest only")
     count++
 })
 
@@ -36,18 +34,11 @@ app.post("/update", function(req, res){
     let id = req.body["task"]
     dailyTasks[id].type = "<input type='checkbox' id='" + id 
     + "' name='task" + id 
-    + "' value='" + id + "' class='checks' checked='yes' onclick='this.form.submit()'></input>"
+    + "' value='" + id + "' class='checks' checked='yes' disabled='disabled'></input>"
 
     let tempString = dailyTasks[id].label
     let newString = tempString.replace("class=''", "class='strikethrough'")
     dailyTasks[id].label = newString
-    console.log("update label")
-    console.log(dailyTasks[id].label)
-
-
-    console.log("update")
-    console.log(req.body["task0"])
-    console.log("wut")
     res.render("index.ejs", {tasks: dailyTasks})
 })
 
