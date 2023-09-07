@@ -12,25 +12,21 @@
   <main>
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                <img src="/images/ToDoList.png" alt="to do list" class="header-img" />
-            </a>
-          </div>
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                    <img src="/images/ToDoList.png" alt="to do list" class="header-img" />
+                </a>
+            </div>
     
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <form action="/goToDailyTasks" method="POST">
-                <input type="submit" value="Daily Tasks">
-            </form>
-            <form action="/goToWorkTasks" method="POST">
-                <input type="submit" value="Work Tasks">
-            </form>
-          </ul>
+            <ul class="nav col-12 col-md-6 mb-2 justify-content-evenly mb-md-0">        
+                <li><button type="button" id="btnDaily" onclick="location.href='/goToDailyTasks'" class="btn btn-primary">Daily Tasks</button></li>
+                <li><button type="button" id="btnDaily" onclick="location.href='/goToWorkTasks'" class="btn btn-secondary">Work Tasks</button></li>
+            </ul>
     
-          <div  class="col-md-3 text-end">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                <img src="/images/ToDoList.png" alt="to do list" class="header-img remove-small" />
-            </a>
-          </div>
+            <div  class="col-md-3 text-end">
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                    <img src="/images/ToDoList.png" alt="to do list" class="header-img remove-small" />
+                </a>
+            </div>
         </header>
-      </div>
+    </div>

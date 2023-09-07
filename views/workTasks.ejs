@@ -1,14 +1,14 @@
 
 <%- include("partials/header.ejs") %>
-    <h1>work stuff</h1>
+    <h1>Work Tasks:</h1>
 
     <form action="/workTasks" method="POST">
         <input type="text" name="task" placeholder="New Task" required>
         <input type="submit" value="OK">
     </form>
     
-    <% if(locals.tasks) {%>
-        <%tasks.forEach((task) => {%>
+    <% if(locals.data.tasks) {%>
+        <%data.tasks.forEach((task) => {%>
             <%- task.formStart %>
             <%- task.type %>
             <%- task.label %>
