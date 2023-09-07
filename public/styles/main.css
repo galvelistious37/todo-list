@@ -11,6 +11,39 @@ h1 {
     text-align: center;
 }
 
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: left;
+    border: 1px solid black;
+    padding: 30px;
+}
+
+/* .checks {
+    margin-left: 30px;
+} */
+
+footer {
+    margin: 20px;
+    text-align: center;
+}
+
 @media(max-width: 768px){
     .remove-small{
         display: none;

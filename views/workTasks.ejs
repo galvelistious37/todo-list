@@ -1,19 +1,24 @@
 
-<%- include("partials/header.ejs") %>
-    <h1>Work Tasks:</h1>
-
-    <form action="/workTasks" method="POST">
-        <input type="text" name="task" placeholder="New Task" required>
-        <input type="submit" value="OK">
-    </form>
-    
-    <% if(locals.data.tasks) {%>
-        <%data.tasks.forEach((task) => {%>
-            <%- task.formStart %>
-            <%- task.type %>
-            <%- task.label %>
-            <%- task.End %>
-        <%})%>
-    <%}%>
-
+    <%- include("partials/header.ejs") %>
+    <h1><%= data.h1Value %></h1>
+    <div class="flex-container">
+        <div class="flex-card">
+            <form action="/workTasks" method="POST">
+                <input type="text" name="task" placeholder="New Task" required>
+                <input type="submit" value="OK">
+            </form>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="todo-container">    
+            <% if(locals.data.tasks) {%>
+                <%data.tasks.forEach((task) => {%>
+                    <%- task.formStart %>
+                    <%- task.type %>
+                    <%- task.label %>
+                    <%- task.End %>
+                <%})%>
+            <%}%>
+        </div>
+    </div>
     <%- include("partials/footer.ejs") %>
