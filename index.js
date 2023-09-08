@@ -15,6 +15,10 @@ let workTasks = []
 let workCount = 0
 
 app.get("/", function(req, res){
+    dailyTasks.splice(0, dailyTasks.length)
+    workTasks.splice(0, workTasks.length)
+    dailyCount = 0
+    workCount = 0
     res.render("dailyTasks.ejs", {data: {h1Value: dailyH1}})
 })
 
