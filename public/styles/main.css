@@ -22,8 +22,10 @@ h1 {
     justify-content: center;
     align-items: center;
     width: 50%;
+    background-color: tan;
     border: 1px solid black;
     padding: 20px;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .todo-container {
@@ -31,13 +33,12 @@ h1 {
     flex-direction: column;
     width: 50%;
     text-align: left;
+    background-color: #FFFF99;
     border: 1px solid black;
     padding: 30px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20pt;
 }
-
-/* .checks {
-    margin-left: 30px;
-} */
 
 footer {
     margin: 20px;
@@ -47,5 +48,9 @@ footer {
 @media(max-width: 768px){
     .remove-small{
         display: none;
+    }
+
+    .flex-container, .todo-container, .flex-card {
+        width: 100%;
     }
 }
