@@ -3,8 +3,8 @@
     height: 150px;
 }
 
-.strikethrough{
-    text-decoration:line-through
+.strikethrough {
+    text-decoration: line-through
 }
 
 h1 {
@@ -57,7 +57,7 @@ footer {
         display: none;
     }
 
-    .flex-container, .todo-container, .flex-card {
+    .flex-container {
         width: 100%;
     }
 }

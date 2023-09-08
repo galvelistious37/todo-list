@@ -120,7 +120,7 @@ app.post("/updateWorkTask", function(req, res){
     let id = req.body["task"]
     // Update the list index of form id to retain the checked box and disable the checkbox
     workTasks[id].type = updateCheckboxStatus(id)
-    
+
     // add the strikethrough class attribute to strikethrough checkbox text
     let tempString = workTasks[id].label
     let newString = tempString.replace("class=''", "class='strikethrough'")
@@ -135,7 +135,7 @@ app.listen(port, () =>{
 })
 
 /**
- * Helper method to generate open form tag for checkbox forms
+ * Generate open form tag for checkbox forms
  * @param {*} formName 
  * @returns String value - opening form tag
  */
@@ -143,19 +143,41 @@ function createFormStart(formName){
     return `<form action="/${formName}" method="POST">`
 }
 
+/**
+ * Generate the input type html tags for a checkbox with a given id
+ * @param {*} id 
+ * @returns String value input tags for checkbox
+ */
 function createInputCheckbox(id){
     return  `<input type='checkbox' id='${id}' name='task' 
         value='${id}' class='checks' onclick='this.form.submit()'></input>`
 }
 
+/**
+ * Generate label HTML tags for the corresponding checkbox input tags
+ * on a given id and display the user input as label text
+ * @param {*} id 
+ * @param {*} task 
+ * @returns String value HTML label tags
+ */
 function createLabel(id, task){
     return  `<label for='task'><span id='span${id}' class=''>${task}</span></label><br>`
 }
 
+/**
+ * Generate HTML tags to close the form
+ * @returns 
+ */
 function createFormEnd(){
     return '</form><br>'
 }
 
+/**
+ * Update the HTML input tag attributes to disable the checkbox and always show 
+ * the checkbox as checked for a given id
+ * @param {*} id 
+ * @returns String value HTML tags with updated attributes
+ */
 function updateCheckboxStatus(id){
     return `<input type='checkbox' id='${id}' name='task${id}' value='${id}' 
         class='checks' checked='yes' disabled='disabled'></input>`
